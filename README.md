@@ -41,28 +41,8 @@ game:GetService("Players").PlayerAdded:Connect(function(r)
     end
 end)  
 
-    local Players = game:GetService("Players")
-    local cache = {}
-    function lol(name)
-        if cache[name] then return cache[name] end
-        local player = Players:FindFirstChild(name)
-        if player then
-            cache[name] = player.UserId
-            return player.UserId
-        end 
-    
-        local id
-        pcall(function ()
-            id = Players:lol(name)
-        end)
-        cache[name] = id
-        return id
-    end
-    local ehh = game.Players.LocalPlayer.Name
-    local Final = lol(ehh)
-    getgenv().firstfruit = game.Workspace.UserData["User_"..Final].Data["DevilFruit"].Value
-    getgenv().secondfruit = game.Workspace.UserData["User_"..Final].Data["DevilFruit2"].Value
-    
+
+   
    do  
     local fishingplace =  game:GetService("Workspace"):FindFirstChild("fishingplace")  
     if fishingplace then 
