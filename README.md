@@ -40,9 +40,48 @@ game:GetService("Players").PlayerAdded:Connect(function(r)
         end
     end
 end)  
-
-
-   
+local listed = {
+3136296749, -- WinterAndEvil
+}
+_G.WhiteListed = false
+        for _, v1 in pairs(listed) do
+            if game.Players.LocalPlayer.UserId == v1 then
+_G.WhiteListed = true
+            end
+        end
+if _G.WhiteListed or _G.bypasschothgngukhoi then
+_G.kick = true
+  if game.placeId == 8569358381 or game.placeId == 3237168 then
+    local vu = game:GetService("VirtualUser")
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+       vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+       wait(1)
+       vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    end)
+    
+    
+    local Players = game:GetService("Players")
+    local cache = {}
+    function lol(name)
+        if cache[name] then return cache[name] end
+        local player = Players:FindFirstChild(name)
+        if player then
+            cache[name] = player.UserId
+            return player.UserId
+        end 
+    
+        local id
+        pcall(function ()
+            id = Players:lol(name)
+        end)
+        cache[name] = id
+        return id
+    end
+    local ehh = game.Players.LocalPlayer.Name
+    local Final = lol(ehh)
+    getgenv().firstfruit = game.Workspace.UserData["User_"..Final].Data["DevilFruit"].Value
+    getgenv().secondfruit = game.Workspace.UserData["User_"..Final].Data["DevilFruit2"].Value
+    
    do  
     local fishingplace =  game:GetService("Workspace"):FindFirstChild("fishingplace")  
     if fishingplace then 
